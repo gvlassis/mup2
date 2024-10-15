@@ -1,0 +1,82 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+    \pgfplotsset{compat=newest}
+    \usepgfplotslibrary{groupplots}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{groupplot}[group style={rows=3, columns=3, horizontal sep=1.2cm, vertical sep=1.4cm},
+                  legend to name=leg:finetune,
+                  legend columns=-1,
+                  scale=0.5,
+                  xmode=log,
+                  log basis x=2]
+    
+    % Linguistic Acceptability
+    \nextgroupplot[title=cola, ylabel=mcc]
+    \addplot+[mark=*] table [x=ζ, y=sp] {cola.dat};
+    \addlegendentry{sp}
+    \addplot+[mark=*] table [x=ζ, y=mup] {cola.dat};
+    \addlegendentry{mup}
+    
+    % Sentiment Classification
+    \nextgroupplot[title=sst2, ylabel=acc]
+    \addplot+[mark=*] table [x=ζ, y=sp] {sst2.dat};
+    \addlegendentry{sp}
+    \addplot+[mark=*] table [x=ζ, y=mup] {sst2.dat};
+    \addlegendentry{mup}
+
+    \nextgroupplot[title=imdb, ylabel=acc]
+    \addplot+[mark=*] table [x=ζ, y=sp] {imdb.dat};
+    \addlegendentry{sp}
+    \addplot+[mark=*] table [x=ζ, y=mup] {imdb.dat};
+    \addlegendentry{mup}
+
+    % Natural Language Inference
+    \nextgroupplot[title=mnli, ylabel=acc]
+    \addplot+[mark=*] table [x=ζ, y=sp] {qqp.dat};
+    \addlegendentry{sp}
+    \addplot+[mark=*] table [x=ζ, y=mup] {qqp.dat};
+    \addlegendentry{mup}
+
+    \nextgroupplot[title=qnli, ylabel=acc]
+    \addplot+[mark=*] table [x=ζ, y=sp] {qnli.dat};
+    \addlegendentry{sp}
+    \addplot+[mark=*] table [x=ζ, y=mup] {qnli.dat};
+    \addlegendentry{mup}
+
+    \nextgroupplot[title=snli, ylabel=acc]
+    \addplot+[mark=*] table [x=ζ, y=sp] {snli.dat};
+    \addlegendentry{sp}
+    \addplot+[mark=*] table [x=ζ, y=mup] {snli.dat};
+    \addlegendentry{mup}
+
+    \nextgroupplot[title=scitail, ylabel=acc]
+    \addplot+[mark=*] table [x=ζ, y=sp] {scitail.dat};
+    \addlegendentry{sp}
+    \addplot+[mark=*] table [x=ζ, y=mup] {scitail.dat};
+    \addlegendentry{mup}
+    
+    % Paraphrase Identification
+    \nextgroupplot[title=qqp, ylabel=f1]
+    \addplot+[mark=*] table [x=ζ, y=sp] {qqp.dat};
+    \addlegendentry{sp}
+    \addplot+[mark=*] table [x=ζ, y=mup] {qqp.dat};
+    \addlegendentry{mup}
+
+    % Topic Classification
+    \nextgroupplot[title=agnews, ylabel=acc]
+    \addplot+[mark=*] table [x=ζ, y=sp] {agnews.dat};
+    \addlegendentry{sp}
+    \addplot+[mark=*] table [x=ζ, y=mup] {agnews.dat};
+    \addlegendentry{mup}
+
+\end{groupplot}
+
+\path (group c2r1.above north east) -- node[above]{\pgfplotslegendfromname{leg:finetune}} (group c2r1.above north west);
+
+\end{tikzpicture}
+    
+\end{document}
