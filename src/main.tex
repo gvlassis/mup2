@@ -49,16 +49,20 @@ In contrast to these works, we study the effect of \mup on features. We focus on
 
 After pretraining, we finetune on top of the features learned during LM on five tasks and nine datasets. We then plot downstream performance versus the width multiplier $\zeta$ for both SP and \mup. Our goal is to compare the two parametrizations quantitatively as the width is scaled. We moreover directly compare the distribution of features at inference as width is increased. We also perform a qualitative comparison of SP and \mup features by visualizing the self-attention mechanism of the pretrained models and the clustering of semantically similar words.
 
-Our ultimate objective is to investigate if and to what extend \mup leads to better features and, as a result, if the original motivation is justified.
+Our ultimate objective is to investigate if and to what extend \mup leads to better features and, as a result, if its original motivation is justified.
 
 \subsection{Findings}
+
+
+Our results suggest that \mup\ can indeed have a positive effect on the learned features. However, this appears to be because
+
 
 \section{\mup\ primer}
 The activations are either $0$ or $+\infty$
 \begin{table}[h!]
 \footnotesize
 \Centering
-\begin{tabular}{cccccccc}
+\begin{tabular}{ccccccccp{10em}}
 \toprule
 Parametrization & Layer & $B_1$ & $B_2$ & $C^{\text{SGD}}_1$ & $C^{\text{SGD}}_2$ & $C^{\text{Adam}}_1$ & $C^{\text{Adam}}_2$\\
 \midrule
@@ -89,8 +93,8 @@ Parametrization & Layer & $B_1$ & $B_2$ & $C^{\text{SGD}}_1$ & $C^{\text{SGD}}_2
     $\fanin$ & Parameter type & Layer & $\mu$ & $B_0$ & $C_0$\\
 \midrule
 \multirow{3}{*}{$\fanin=1$} & \texttt{bias} & Input & $0$ & $0$ & $\kinput$\\
-& \texttt{LayerNorm.weight}  & Input & $1$ & $0$ & $\kinput$\\
-& \texttt{class}  & Input & $0$ & $\cinput$ & $\kinput$\\
+& \texttt{LayerNorm.weight} & Input & $1$ & $0$ & $\kinput$\\
+& \texttt{class} & Input & $0$ & $\cinput$ & $\kinput$\\
 \cmidrule{1-6}
 \multirow{4}{*}{$\fanin>1$} & \texttt{Linear/Conv.weight}  & Input & $0$ & $\cinput \cdot \sqrt{\fanin}$ & $\kinput$\\
 & \texttt{Linear/Conv.weight}  & Hidden & $0$ & $\chidden$ & $\khidden$\\

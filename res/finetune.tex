@@ -20,6 +20,8 @@
     \addlegendentry{sp}
     \addplot+[mark=*] table [x=ζ, y=mup] {cola.dat};
     \addlegendentry{mup}
+    \addplot+[mark=*] table [x=ζ, y=mupthresh] {cola.dat};
+    \addlegendentry{mupthresh}
     
     % Sentiment Classification
     \nextgroupplot[title=sst2, ylabel=acc]
@@ -27,37 +29,49 @@
     \addlegendentry{sp}
     \addplot+[mark=*] table [x=ζ, y=mup] {sst2.dat};
     \addlegendentry{mup}
+    \addplot+[mark=*] table [x=ζ, y=mupthresh] {sst2.dat};
+    \addlegendentry{mupthresh}
 
     \nextgroupplot[title=imdb, ylabel=acc]
     \addplot+[mark=*] table [x=ζ, y=sp] {imdb.dat};
     \addlegendentry{sp}
     \addplot+[mark=*] table [x=ζ, y=mup] {imdb.dat};
     \addlegendentry{mup}
+    \addplot+[mark=*] table [x=ζ, y=mupthresh] {imdb.dat};
+    \addlegendentry{mupthresh}
 
     % Natural Language Inference
     \nextgroupplot[title=mnli, ylabel=acc]
-    \addplot+[mark=*] table [x=ζ, y=sp] {qqp.dat};
+    \addplot+[mark=*] table [x=ζ, y=sp] {mnli.dat};
     \addlegendentry{sp}
-    \addplot+[mark=*] table [x=ζ, y=mup] {qqp.dat};
+    \addplot+[mark=*] table [x=ζ, y=mup] {mnli.dat};
     \addlegendentry{mup}
+    \addplot+[mark=*] table [x=ζ, y=mupthresh] {mnli.dat};
+    \addlegendentry{mupthresh}
 
     \nextgroupplot[title=qnli, ylabel=acc]
     \addplot+[mark=*] table [x=ζ, y=sp] {qnli.dat};
     \addlegendentry{sp}
     \addplot+[mark=*] table [x=ζ, y=mup] {qnli.dat};
     \addlegendentry{mup}
+    \addplot+[mark=*] table [x=ζ, y=mupthresh] {qnli.dat};
+    \addlegendentry{mupthresh}
 
     \nextgroupplot[title=snli, ylabel=acc]
     \addplot+[mark=*] table [x=ζ, y=sp] {snli.dat};
     \addlegendentry{sp}
     \addplot+[mark=*] table [x=ζ, y=mup] {snli.dat};
     \addlegendentry{mup}
+    \addplot+[mark=*] table [x=ζ, y=mupthresh] {snli.dat};
+    \addlegendentry{mupthresh}
 
     \nextgroupplot[title=scitail, ylabel=acc]
     \addplot+[mark=*] table [x=ζ, y=sp] {scitail.dat};
     \addlegendentry{sp}
     \addplot+[mark=*] table [x=ζ, y=mup] {scitail.dat};
     \addlegendentry{mup}
+    \addplot+[mark=*] table [x=ζ, y=mupthresh] {scitail.dat};
+    \addlegendentry{mupthresh}
     
     % Paraphrase Identification
     \nextgroupplot[title=qqp, ylabel=f1]
@@ -65,6 +79,8 @@
     \addlegendentry{sp}
     \addplot+[mark=*] table [x=ζ, y=mup] {qqp.dat};
     \addlegendentry{mup}
+    \addplot+[mark=*] table [x=ζ, y=mupthresh] {qqp.dat};
+    \addlegendentry{mupthresh}
 
     % Topic Classification
     \nextgroupplot[title=agnews, ylabel=acc]
@@ -72,6 +88,8 @@
     \addlegendentry{sp}
     \addplot+[mark=*] table [x=ζ, y=mup] {agnews.dat};
     \addlegendentry{mup}
+    \addplot+[mark=*] table [x=ζ, y=mupthresh] {agnews.dat};
+    \addlegendentry{mupthresh}
 
 \end{groupplot}
 
