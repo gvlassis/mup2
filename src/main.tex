@@ -90,7 +90,7 @@ Parametrization & Layer & $B_1$ & $B_2$ & $C^{\text{SGD}}_1$ & $C^{\text{SGD}}_2
 \Centering
 \begin{tabular}{cccccc}
 \toprule
-    $\fanin$ & Parameter type & Layer & $\mu$ & $B_0$ & $C_0$\\
+$\fanin$ & Parameter type & Layer & $\mu$ & $B_0$ & $C_0$\\
 \midrule
 \multirow{3}{*}{$\fanin=1$} & \texttt{bias} & Input & $0$ & $0$ & $\kinput$\\
 & \texttt{LayerNorm.weight} & Input & $1$ & $0$ & $\kinput$\\
@@ -105,7 +105,6 @@ Parametrization & Layer & $B_1$ & $B_2$ & $C^{\text{SGD}}_1$ & $C^{\text{SGD}}_2
 \end{tabular}
 \caption{Constants (arbitrary)}
 \end{table}
-
 
 \section{Experimental setup}
 We untie
@@ -146,6 +145,62 @@ Topic Classification & AG News \\
 \begin{figure}
 \includegraphics[width=\textwidth]{../res/finetune.pdf}
 \end{figure}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{../res/sp16.png}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{../res/mup16.png}
+\end{figure}
+
+\begin{table}[h!]
+\Centering
+\begin{tabular}{cccccccc}
+\toprule
+& Parametrization & mean & std & min & max & kurt & mmr\\
+\midrule
+\multirow{3}{*}{$\zeta=1$} & SP & \\
+& \mup &\\
+& \mup (threshold) &\\
+\cmidrule{1-8}
+\multirow{3}{*}{$\zeta=2$} & SP & \\
+& \mup &\\
+& \mup (threshold) &\\
+\bottomrule
+\end{tabular}
+\caption{Distribution}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{cccccccc}
+\toprule
+$\zeta$ & Parametrization & mean & std & min & max & kurt & mmr\\
+\midrule
+\multirow{3}{*}{$\zeta=1$} & SP & 0.06 & 3.64 & -25.10 & 23.77 & 4.14 & 6.91 \\
+& \mup & 0 & 5.21 & -33.52 & 32.89 & 6.26 & 8.09 \\
+& \mup (threshold) & -0.26 & 3.49 & -23.11 & 17.73 & 1.96 & 5.20 \\
+\cmidrule{1-8}
+\multirow{3}{*}{$\zeta=2$} & SP & -0.03 & 10.79 & -121.72 & 81.85 & 20.35 & 13.33 \\
+& \mup & -0.14 & 6.45 & -81.05 & 71.61 & 11.72 & 9.12 \\
+& \mup (threshold) & -0.03 & 4.80 & -29.48 & 50.60 & 11.03 & 9.79 \\
+\cmidrule{1-8}
+\multirow{3}{*}{$\zeta=4$} & SP & 0.02 & 30.75 & -661.47 & 357.34 & 75.95 & 30.40 \\
+& \mup & -0.38 & 12.08 & -214.18 & 231.90 & 25.58 & 14.36 \\
+& \mup (threshold) & 0.01 & 3.17 & -53.16 & 25.17 & 22.18 & 12.59 \\
+\cmidrule{1-8}
+\multirow{3}{*}{$\zeta=8$} & SP & -0.85 & 121.24 & -1974.84 & 3968.10 & 171.88 & 62.00 \\
+& \mup & 0.15 & 11.78 & -184.89 & 568.77 & 102.74 & 30.43 \\
+& \mup (threshold) & 0 & 3.34 & -58.35 & 87.03 & 82.16 & 24.09 \\
+\cmidrule{1-8}
+\multirow{3}{*}{$\zeta=16$} & SP & -3.30 & 489.38 & -24011.69 & 17566.04 & 442.83 & 136.87 \\
+& \mup & 0.11 & 10.56 & -540.39 & 752.14 & 185.82 & 30.64 \\
+& \mup (threshold) & -0.04 & 2.87 & -99.39 & 118.88 & 107.13 & 21.90 \\
+\bottomrule
+\end{tabular}
+\caption{Distribution}
+\end{table}
 
 \subsection{Qualitative}
 
